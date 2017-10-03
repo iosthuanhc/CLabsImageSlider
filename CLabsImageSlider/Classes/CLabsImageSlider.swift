@@ -98,9 +98,6 @@ public class CLabsImageSlider:UIView,updateUI
         
     }
     
-    
-    
-    
     /**
      This function set up the image slider for you just pass few required parameters to it
      - returns: Nothing
@@ -111,7 +108,7 @@ public class CLabsImageSlider:UIView,updateUI
      - parameter isArrowBtnEnabled:Bool to show arrows to slide images backward and forward pass true else false
      Throws : nothing
      */
-    public func setUpView(imageSource:imageSrc,slideType:slideCase,isArrowBtnEnabled:Bool)
+    public func setUpView(imageSource:imageSrc,slideType:slideCase,isArrowBtnEnabled:Bool, imageModel: UIViewContentMode)
     {
         switch imageSource{
         case .Local(let images):
@@ -149,14 +146,14 @@ public class CLabsImageSlider:UIView,updateUI
         imageView1.frame   =   leftFrame
         imageView1.tag  =   1
         imageView1.isUserInteractionEnabled   =  true
-        imageView1.contentMode  =   .scaleToFill
+        imageView1.contentMode  =   imageModel
         self.addSubview(imageView1)
         
         
         
         imageView2.frame   =   midFrame
         imageView2.tag  =   2
-        imageView2.contentMode  =   .scaleToFill
+        imageView2.contentMode  =   imageModel
         imageView2.isUserInteractionEnabled   =  true
         visibleImageView    =   imageView2
         
@@ -169,7 +166,7 @@ public class CLabsImageSlider:UIView,updateUI
         
         imageView3.frame    =   rightFrame
         imageView3.tag  =   3
-        imageView3.contentMode  =   .scaleToFill
+        imageView3.contentMode  =   imageModel
         imageView3.isUserInteractionEnabled   =  true
         self.addSubview(imageView3)
         
